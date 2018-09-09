@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- 扫描spring的注解 -->
+	<context:component-scan
+		base-package="cn.sm1234.controller"></context:component-scan>
+
+	<!-- 配置新的HandlerMapping和HandlerAdapter -->
+
+	<!-- 方法一 --><!-- 推荐使用方法一 -->
+	<mvc:annotation-driven></mvc:annotation-driven>
+
+	<!-- 方法二 -->
+	<!-- <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"></bean> 
+		<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"></bean> -->
+
+	<!-- 配置ViewRevoler -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- 配置前缀的访问路径 -->
+		<property name="prefix" value="/WEB-INF/JSP/"></property>
+		<!-- 配置后缀的访问路径 -->
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+
+</beans>
